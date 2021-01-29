@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./generic-styles.css">
+    <title>Important To Do List</title>
+  </head>
+  <body>
+
+    <section id="things-i-can-control">
+      <h2>Things I CAN Control</h2>
+      <input value="" onkeyup="setValueOf_Can_Control(this.value)"/> 
+      <button onclick="createObjectIn_Can_ControlList();">Can Control</button>
+    </section>
+
+    <section id="things-i-cant-control">
+      <h2>Things I CAN'T Control</h2>
+      <input value="" onkeyup="setValueOf_Cant_Control(this.value)"/> 
+      <button onclick="createObjectIn_Cant_ControlList();">Can't Control</button>
+    </section>
+
+    <section>
+      <h2>Things I Must Accept</h2>
+    </section>
+
+    <script>
+      let thingI_Can_Control;
+      let thingI_Cant_Control;
+
+      function setValueOf_Can_Control(input) {
+        thingI_Can_Control = input
+        console.log({usersInput})
+      }
+      
+      function setValueOf_Cant_Control() {
+      }
+
+      function createObjectIn_Can_ControlList() {
+        let newObject = document.createElement("h3")
+        let text = document.createTextNode(thingI_Can_Control)
+        newObject.appendChild(text)
+        
+        // We want to append the new object in a specific Section object instead of the Body object
+        // So we use the Document's method: "getElementById()" to select the section
+        // document.body.appendChild(newObject)  
+        document.getElementById("things-i-can-control").appendChild(newObject)
+      }
+
+      function createObjectInCantControlList() {
+      }
+
+    </script>
+  </body>
+</html>
