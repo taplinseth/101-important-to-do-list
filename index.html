@@ -20,20 +20,30 @@
       <button onclick="createObjectIn_Cant_ControlList();">Can't Control</button>
     </section>
 
-    <section>
+    <section id="things-i-must-accept">
       <h2>Things I Must Accept</h2>
+      <input value="" onkeyup="setValueOf_Must_Accept(this.value)"/> 
+      <button onclick="createObjectIn_Must_AcceptList();">Must Accept</button>
     </section>
 
     <script>
       let thingI_Can_Control;
       let thingI_Cant_Control;
+      let thingI_Must_Accept;
 
       function setValueOf_Can_Control(input) {
         thingI_Can_Control = input
         console.log({usersInput})
       }
       
-      function setValueOf_Cant_Control() {
+      function setValueOf_Cant_Control(input) {
+        thingI_Cant_Control = input
+        console.log({usersInput})
+      }
+
+      function setValueOf_Must_Accept(input) {
+        thingI_Must_Accept = input
+        console.log({usersInput})
       }
 
       function createObjectIn_Can_ControlList() {
@@ -47,7 +57,20 @@
         document.getElementById("things-i-can-control").appendChild(newObject)
       }
 
-      function createObjectInCantControlList() {
+      function createObjectIn_Cant_ControlList() {
+        let newObject = document.createElement("h3")
+        let text = document.createTextNode(thingI_Cant_Control)
+        newObject.appendChild(text)
+
+        document.getElementById("things-i-cant-control").appendChild(newObject)
+      }
+
+      function createObjectIn_Must_AcceptList() {
+        let newObject = document.createElement("h3")
+        let text = document.createTextNode(thingI_Must_Accept)
+        newObject.appendChild(text)
+
+        document.getElementById("things-i-must-accept").appendChild(newObject)
       }
 
     </script>
